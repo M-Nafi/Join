@@ -12,7 +12,7 @@ let buckets = ['to-do', 'in-progress','await-feedback', 'done'];
  * @param {string} category - Task category
  * @returns - returns the html text
  */
-function generateTaskHTML(id, bucket, title, description, duedate, prio, category) {
+function generateTaskHTML(id, title, description, prio, category) {
     return `
             <div class="task-card" id="task${id}" onclick="loadTask(${id})" ondragstart="startDragging(${id})"
             draggable="true">
@@ -31,6 +31,8 @@ function generateTaskHTML(id, bucket, title, description, duedate, prio, categor
                 <div class="task-description">${description}</div>
             </div>
             <!-- Subtasks -->
+            <div id="subtasks_container_${id}" class="subtasks-container">
+            </div>
             
             <!-- Assignment -->
             
@@ -46,6 +48,17 @@ function generateTaskHTML(id, bucket, title, description, duedate, prio, categor
  */
 function generateNoTaskHTML(bucket) {
     return `<div class="no-tasks">No tasks ${bucket}</div>`;
+}
+
+function generateSubtaskProgress(allSubtask, done){
+    let percentInWidth = loadPercentInWidth(allSubtask, done);
+    return `
+        <div class="subtasks-progress-bar" title="${done}/${allSubtask} subtasks are done">
+            <div class="progress" style="width: ${percentInWidth}%;"></div>
+        </div>
+        <div class="nowrap">${done}/${allSubtask} Subtasks</div>
+    
+    `;
 }
 
 

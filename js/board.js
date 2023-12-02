@@ -13,6 +13,12 @@ function loadBoard() {
     }
 }
 
+function loadCard(id, bucket, title, description, prio, category, subtasks) {
+    document.getElementById(bucket).innerHTML +=
+    generateTaskHTML(id, title, description, prio, category);
+    loadSubtaskprogress(subtasks, id);
+}
+
 function loadNoTasksLabel(bucket) {
     let taskColumn = document.getElementById(bucket);
 
@@ -22,20 +28,36 @@ function loadNoTasksLabel(bucket) {
     }
 }
 
+function loadSubtaskprogress(subtasks, id) {
+    let allSubtask = subtasks.length;
+    let done = loadSubtaskAreDone(subtasks);
+    document.getElementById(`subtasks_container_${id}`).innerHTML = 
+    generateSubtaskProgress(allSubtask, done);
 
-// function formatNoTaskLabelString(str) {
 
-//   // Capitalize the first letter of each part
-//   let formattedParts = parts.map(
-//     part => part.charAt(0).toUpperCase() + part.slice(1)
-//   );
-//    // Split the string at the hyphen
-//    let parts = str.split('-');
+}
 
-//   // Join the parts with spaces and return the result
-//   return formattedParts.join(' ');
-// }
+function loadSubtaskAreDone(subtasks) {
+    let done = 0;
+    for (let i = 0; i < subtasks.length; i++) {
+        let subtask = subtasks[i];
+        if (subtask.subdone){
+            done++
+        }
+    }
+    return done;
+}
 
+/**
+ * returns the completed subtasks as a percentage
+ * @param {int} allSubtask - All stubtasks of a task
+ * @param {*} done  - all completed subtasks of a task
+ * @returns 
+ */
+function loadPercentInWidth(allSubtask, done) {
+    let percentInWidth = done / allSubtask * 100;
+    return percentInWidth
+}
 
 
 function formatNoTaskLabelString(str) {
