@@ -14,8 +14,9 @@ function loadBoard() {
 }
 
 function loadCard(id, bucket, title, description, prio, category, subtasks, assigneds) {
+    let categoryColor = loadCategoryColor(category);
     document.getElementById(bucket).innerHTML +=
-    generateTaskHTML(id, title, description, prio, category);
+    generateTaskHTML(id, title, description, category, categoryColor);
     loadSubtaskprogress(subtasks, id);
     loadAssigneds(assigneds, id);
     loadCardPrioIcon(prio, id);
@@ -67,6 +68,14 @@ function loadSubtaskAreDone(subtasks) {
         }
     }
     return done;
+}
+
+function loadCategoryColor(category) {
+    if(category === 'Technical Task') {
+        return '#1fd7c1';
+    } else if (category === 'User Story') {
+        return '#0038FF';
+    }
 }
 
 //Generator & calculator

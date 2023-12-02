@@ -4,20 +4,18 @@ let buckets = ['to-do', 'in-progress','await-feedback', 'done'];
 /**
  * this function generates the HTML for the map in the board view
  * @param {int} id - number of the id for the drag and drop function
- * @param {string} bucket - Board ID as column name 
  * @param {string} title - Card title
  * @param {string} description - Card description
- * @param {string} duedate - Card duedate
- * @param {string} prio - Card prio
  * @param {string} category - Task category
+ * @param {string} categoryColor - Task categor color
  * @returns - returns the html text
  */
-function generateTaskHTML(id, title, description, prio, category) {
+function generateTaskHTML(id, title, description, category, categoryColor) {
     return `
             <div class="task-card" id="task${id}" onclick="loadTask(${id})" ondragstart="startDragging(${id})"
             draggable="true">
             <div class="category-move-card-container">
-                <div class="technical-task">${category}</div>
+                <div class="task-category-label" style="background-color: ${categoryColor};">${category}</div>
                 <svg fill="#000000" width="1.6rem" height="1.6rem" viewBox="0 0 16 16"
                     xmlns="http://www.w3.org/2000/svg" class="mobile-move-card d-none"
                     onclick="switchToBucket(3, event)">

@@ -210,9 +210,8 @@
     width: 100%;
 }
 
-.technical-task {
+.task-category-label {
     padding: 0.4rem 1.6rem 0.4rem 1.6rem;
-    background-color: var(--lable-turquoise);
     border-radius: 8px;
     color: white;
 }
