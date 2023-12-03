@@ -12,7 +12,7 @@ let buckets = ['to-do', 'in-progress','await-feedback', 'done'];
  */
 function generateTaskHTML(id, title, description, category, categoryColor) {
     return `
-            <div class="task-card" id="task${id}" onclick="loadTask(${id})" ondragstart="startDragging(${id})"
+            <div class="task-card" id="task${id}" onclick="loadTaskOverlay(${id})" ondragstart="startDragging(${id})"
             draggable="true">
             <div class="category-move-card-container">
                 <div class="task-category-label" style="background-color: ${categoryColor};">${category}</div>

@@ -14,7 +14,7 @@ function updateBoard(bucket) {
         let subtasks = task['subtask'];
         let assigneds = task['assigned'];
         loadCard(id,bucket, title, description, prio, category, subtasks, assigneds);
-    } 
+    }
 }
 
 /**

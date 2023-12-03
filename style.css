@@ -143,37 +143,38 @@ body {
 
 input[type="checkbox"] + label {
     position: absolute;
-    margin-left: 4rem;
+    margin-left: 2rem;
 }
 
 input[type="checkbox"] {
     position: relative;
-    left: 15px;
-    top: -4px;
+    left: 1.5rem;
+    top: -0.4rem;
     z-index: 0;
     appearance: none;
 }
 
 input[type="checkbox"] + label::before {
-    width: 22px;
-    height: 18px;
-    background-image: url("./assets/img/unchecked.png");
+    width: 2.2rem;
+    height: 1.9rem;
+    background-image: url("./assets/img/chechbox.svg");
+    background-repeat: no-repeat;
     display: block;
     content: "";
     float: left;
-    margin-right: 5px;
+    margin-right: 1.6rem;
     z-index: 5;
     position: relative;
 }
 
 input[type="checkbox"]:checked + label::before {
-    background-image: url("./assets/img/checked.png");
+    background-image: url("./assets/img/checkbox_checked.svg");
 }
 
 .btn-log-in-container {
     width: 32.2rem;
     height: 4.8rem;
-    gap: 35px;
+    gap: 3.5rem;
     display: flex;
     justify-content: center;
     align-items: center;

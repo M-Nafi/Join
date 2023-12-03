@@ -18,6 +18,7 @@
     <script src="./js/board.js"></script>
     <script src="./js/sidebar-header.js"></script>
     <script src='./js/add-task-slider.js'></script>
+    <script src="./js/task-overlay.js"></script>
 </head>
 
 <body onload="includeHTML(), initBoard()">
@@ -163,7 +164,7 @@
 
                 </div>
                 <!-- Task Open Content Slider-->
-                <div id="ed_task_overlay_bg" class="slider-bg d-none">
+                <div id="ed_task_overlay_bg" class="slider-bg">
                     <div id="ed_task_overlay_frame" class="task-overlay-frame-open">
                         <!-- tesk overlay tag -->
                         <div class="category-container-task-open">
@@ -282,8 +283,13 @@
                         <div class="column-frame-container-task-open">
                             <div class="label-task-open">Subtasks</div>
                             <div id="subtasks_contacts_task_open">
+                                <!-- substasks -->
+                                <div class="log-in-checkbox">
+                                    <input id="confirm" type="checkbox" checked />
+                                    <label for="confirm">Remember me</label>
+                                </div>
 
-                                <div class="subtask-task-open">
+                                <!-- <div class="subtask-task-open">
                                     <label class="checkbox-container">
                                         <input value="Heike Lüdemann" class="checkbox-contact" id="check_contact0"
                                             type="checkbox">
@@ -306,7 +312,7 @@
                                         </div>
                                     </label>
                                     <div>Add Style on Main div</div>
-                                </div>
+                                </div> -->
                                 <div class="subtask-task-open">
                                     <label class="checkbox-container">
                                         <input value="Heike Lüdemann" class="checkbox-contact" id="check_contact0"
