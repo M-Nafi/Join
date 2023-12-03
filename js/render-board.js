@@ -155,11 +155,11 @@ addedTasks = [{
     "category": "Technical Task",
     "subtask": [
         {
-            "subdone": true,
+            "subdone": false,
             "subtitle": "Establish CSS Methodology"
         },
         {
-            "subdone": true,
+            "subdone": false,
             "subtitle": "Setup Base Styles"
 
         }

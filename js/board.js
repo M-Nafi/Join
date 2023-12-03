@@ -33,8 +33,10 @@ function loadNoTasksLabel(bucket) {
 function loadSubtaskprogress(subtasks, id) {
     let allSubtask = subtasks.length;
     let done = loadSubtaskAreDone(subtasks);
+    if (allSubtask > 0) {
     document.getElementById(`subtasks_container_${id}`).innerHTML = 
     generateSubtaskProgressHTML(allSubtask, done);
+    }
 }
 
 function loadAssigneds(assigneds, id) {
