@@ -123,6 +123,14 @@
     gap: 1.6rem;
 }
 
+.checkbox-hover:hover {
+    background-color: var(--light-grey-placeholder);
+    border-radius: 1rem;
+    width: 44rem;
+    height: 3.2rem;
+
+}
+
 .delete-edit-container-task-open {
     display: flex;
     justify-content: flex-end;

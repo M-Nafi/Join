@@ -1,6 +1,6 @@
 function loadTaskOverlay(id) {
     let tasks = addedTasks.filter((t) => t["bucket"] == bucket);
-    document.getElementById(bucket).innerHTML = "";
+    document.getElementById('').innerHTML = "";
     for (let index = 0; index < tasks.length; index++) {
         let task = tasks[index];
         let id = task['id'];
