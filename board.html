@@ -7,6 +7,7 @@
     <title>Join</title>
     <link rel="stylesheet" href="./css/sidebar-header_template.css">
     <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/slider.css">
     <link rel="stylesheet" href="./css/mobile-header-footer.css">
     <link rel="stylesheet" href="./css/add-task-slider.css">
     <link rel="stylesheet" href="./css/edit-board-slider.css">
@@ -19,6 +20,7 @@
     <script src="./js/sidebar-header.js"></script>
     <script src='./js/add-task-slider.js'></script>
     <script src="./js/task-overlay.js"></script>
+    <script src="./js/slider.js"></script>
 </head>
 
 <body onload="includeHTML(), initBoard()">
@@ -164,12 +166,12 @@
 
                 </div>
                 <!-- Task Open Content Slider-->
-                <div id="ed_task_overlay_bg" class="slider-bg">
+                <div id="task_overlay_bg" class="slider-center d-none">
                     <div id="ed_task_overlay_frame" class="task-overlay-frame-open">
                         <!-- tesk overlay tag -->
                         <div class="category-container-task-open">
                             <div class="category-tag-task-open">Technical Task</div>
-                            <div class="close-button">
+                            <div class="close-button" onclick="closeFrame('task_overlay_bg')">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
                                     <mask id="mask0_99379_7049" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
@@ -288,7 +290,6 @@
                                     <input id="confirm" type="checkbox" />
                                     <label class="checkbox-hover" for="confirm">Remember me</label>
                                 </div>
-
 
                             </div>
                         </div>

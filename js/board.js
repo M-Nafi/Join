@@ -16,7 +16,7 @@ function loadBoard() {
 function loadCard(id, bucket, title, description, prio, category, subtasks, assigneds) {
     let categoryColor = loadCategoryColor(category);
     document.getElementById(bucket).innerHTML +=
-    generateTaskHTML(id, title, description, category, categoryColor);
+    generateCardHTML(id, title, description, category, categoryColor);
     loadSubtaskprogress(subtasks, id);
     loadAssigneds(assigneds, id);
     loadCardPrioIcon(prio, id);
@@ -78,6 +78,16 @@ function loadCategoryColor(category) {
     } else if (category === 'User Story') {
         return '#0038FF';
     }
+}
+
+function showFrame(id) {
+    document.getElementById(id).classList.add('slider-bg');
+    document.getElementById(id).classList.remove('d-none');
+}
+
+function closeFrame(id) {
+    document.getElementById(id).classList.remove('slider-bg');
+    document.getElementById(id).classList.add('d-none');
 }
 
 //Generator & calculator

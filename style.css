@@ -141,10 +141,21 @@ body {
     color: var(--light-grey-placeholder);
 }
 
-input[type="checkbox"] + label {
-    position: absolute;
-    margin-left: 2rem;
+.log-in-checkbox {
+    display: flex;
 }
+
+
+input[type="checkbox"] + label {
+
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1.6rem;
+    width: 44rem;
+    height: 3.2rem;
+}
+
 
 input[type="checkbox"] {
     position: relative;
@@ -189,7 +200,6 @@ input[type="checkbox"]:checked + label::before {
     background-color: var(--primary-dark-blue);
     font-size: 2.1rem;
     font-weight: 700;
-
     border-radius: 8px;
     color: white;
 }
