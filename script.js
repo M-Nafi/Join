@@ -17,6 +17,16 @@ async function includeHTML() {
 }
 
 let users = [];
+let currentUser;
+
+async function summaryInit(){
+  await loadUsers();
+  includeHTML();
+  loadCurrentUser();
+  greetUser();
+  displayGreeting();
+}
+
 
 async function init() {
     loadUsers();
@@ -68,21 +78,27 @@ async function userToRemoteStorage() {
     });
     await setItem("users", JSON.stringify(users));
 }
-
+/**
+ * Information that registration was successful and we will be redirected
+ */
 function successfulRegistration() {
-    const sing_up_container = document.getElementById("sing_up_container");
-    sing_up_container.innerHTML =
-        '<span class="register-succesful">Registration successful</span>';
-
-    setTimeout(() => {
-        renderLogIn();
-    }, 1000);
+  const sing_up_container = document.getElementById('sing_up_container');
+  sing_up_container.innerHTML = '<span class="register-succesful">Registration successful</span>';
+  
+  setTimeout(() => {
+    renderLogIn();
+  }, 1000);
 }
-
+/**
+ * 
+This function checks whether email exists in Array Users
+ */
 function isEmailExists(email) {
     return users.some((user) => user.email === email);
 }
-
+/**This function tells us that email is available
+ * 
+ */
 function emailExist() {
     let messageElement = document.getElementById("message");
     messageElement.innerText = "Die E-Mail ist bereits vorhanden.";
@@ -130,46 +146,90 @@ function resetForm() {
 
 // Log in //
 
+/**
+ * The function checks whether all operations are fulfilled, if so the user is logged in
+ */
 function logIn() {
-    let email = document.getElementById("log_in_email");
-    let password = document.getElementById("log_in_password");
-    let user = users.find(
-        (u) => u.email == email.value && u.password == password.value
-    );
-    console.log(user);
-    if (user) {
-        let currentUser = null;
-        let userIndex = users.findIndex((user) => user.email === email);
-        currentUser = users[userIndex];
-        console.log("User Gefunden");
-        document.getElementById("log_message").innerText = "Log in successful";
-        window.location = "summary.html";
-    } else {
-        document.getElementById("log_message").innerText = "User not found";
-    }
+  let email = document.getElementById('log_in_email').value;
+  let password = document.getElementById('log_in_password').value;
+  let user = logInValidation(email, password);
+  if (user) {
+    indexOfUser(email);
+    logInSuccedMsg();
+  }
+  else {
+    document.getElementById('log_message').innerText = 'Email or password not found';
+    document.getElementById('log_message').style = 'color: red'
+  }
+}
+/**
+ * This function searches for the index in the array users of specified "email",
+ * if email is found the index is stored in localStorage
+ 
+ */
+function indexOfUser(email){
+  let userIndex = users.findIndex(user => user.email === email);
+  localStorage.setItem('currentUserIndex', userIndex);
+}
+/**
+ * 
+ This function checks whether the same email and password are in the array
+ */
+function logInValidation(email, password){
+ let user = users.find(u => u.email == email && u.password == password);
+  return user;
+}
+/**
+ * This function tells us that the registration was successful. Then we will be redirected to the next website
+ */
+function logInSuccedMsg(){
+  document.getElementById('log_message').innerText = "Log in successful";
+  setTimeout(() => {
+      window.location.href = 'summary.html';
+    }, 1000);
+}
+/**
+ * This function loads the index number from localStorage, it is needed for further functions. so that the site knows who exactly is logged in
+ */
+function loadCurrentUser(){
+  currentUser = localStorage.getItem('currentUserIndex');
+}
+/**
+ * The function uses the value of index to transfer from the array Users which user should be welcomed.
+ */
+function greetUser(){
+  let greet = document.getElementById('user_name');
+  i = currentUser;
+  if(i >= 0){
+  greet.innerHTML = `${users[i]['name']}`;
+  }
+} 
+/**
+ * This function is for guest registration. This sets the index to -1 so that if query in greetUser() does not come into effect. and the standard greeting is displayed
+ */
+function logInGuest(){
+  window.location.href = 'summary.html';
+  userIndex = -1;
+  localStorage.setItem('currentUserIndex', userIndex);
+  document.getElementById('user_name') = 'Sophia Müller';
+}
+/**
+ * This function determines the time and depending on what hour it is, a greeting is displayed accordingly
+ */
+function displayGreeting() {
+  let today = new Date();
+  let hour = today.getHours();
+
+  let greeting;
+  if (hour >= 4 && hour < 12) {
+    greeting = 'Good morning,';
+  } else if (hour >= 12 && hour < 18) {
+    greeting = 'Good afternoon,';
+  } else {
+    greeting = 'Good evening,';
+  }
+
+  let greetBox = document.getElementById('greet_box');
+  greetBox.textContent = greeting;
 }
 
-function logIn() {
-    let email = document.getElementById("log_in_email").value;
-    let password = document.getElementById("log_in_password").value;
-
-    if (!user) {
-        document.getElementById("log_message").innerText =
-            "Benutzer nicht gefunden!";
-        return; // Stoppt die Funktion an dieser Stelle
-    }
-}
-
-//   // Überprüfung des Passworts
-//   if (user.password === password) {
-//     // Wenn E-Mail und Passwort übereinstimmen
-//     alert('Login erfolgreich');
-//     setTimeout(() => {
-//       // Weiterleitung zur summary.html nach 2 Sekunden
-//       window.location.href = 'summary.html';
-//     }, 2000);
-//   } else {
-//     // Wenn das Passwort nicht übereinstimmt
-//     alert('Falsches Passwort');
-//   }
-// }

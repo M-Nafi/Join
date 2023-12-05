@@ -12,6 +12,7 @@ function renderHtmlLogIn() {
         srcset=""
       />
     </div>
+    <div class="log-in-msg" id="log_message"></div>
     <div class="log-in-input-box">
       <input id="log_in_password" required placeholder="Password"  type="password" /><img
         src="./assets/img/lock.png"
@@ -29,7 +30,7 @@ function renderHtmlLogIn() {
     </div>
     <div class="btn-log-in-container">
       <button class="btn-log-in" onclick="logIn()">Log in</button>
-      <button class="btn-log-in-guest">Guest Log in</button>
+      <button class="btn-log-in-guest" onclick="logInGuest()">Guest Log in</button>
     </div>
   </div>
 </div>
@@ -182,7 +183,7 @@ function renderSignUpHTML() {
         name="sing-up-check"
         checked
       /><label style="font-size: 2rem" for="sing-up-check"
-        >i accept the <a href="#">Privacy policy</a></label
+        >i accept the <a class="sign-up-link" href="privacy_policy.html">Privacy policy</a></label
       >
       </div>
       

@@ -280,7 +280,7 @@
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.3rem;
     padding-left: 8rem;
 }

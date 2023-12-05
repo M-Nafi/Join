@@ -11,15 +11,17 @@
     <link rel="stylesheet" href="./css/sidebar-header_template.css">
     <link rel="stylesheet" href="./fonts.css">
     <link rel="stylesheet" href="./css/summary.css">
-    <script src="./js/sidebar-header.js"></script>
+    <script src="./js/storage.js"></script>
     <script src="script.js"></script>
+    <script src="./js/sidebar-header.js"></script>
     <script src="html.js"></script>
+    
 
 </head>
 
 <body>
 
-    <body onload="includeHTML()">
+    <body onload="summaryInit()">
         <div class="w3include-container">
             <div w3-include-html="assets/templates/sidebar_template.html"></div>
             <main class="main-content-summary">
@@ -113,8 +115,8 @@
                             </div>
                         </div>
                         <div class="greet-container">
-                            <h2 class="greet-box">Good morning</h2>
-                            <span class="user-name">Sophia Müller</span>
+                            <h2 id="greet_box" class="greet-box">Good morning</h2>
+                            <span id="user_name" class="user-name">Sophia Müller</span>
                         </div>
                     </div>
                 </div>
