@@ -1,104 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <link rel="stylesheet" href="/Join/">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./fonts.css">
-    <link rel="stylesheet" href="./css/add_task.css">
-    <link rel="stylesheet" href="./css/sidebar-header_template.css">   
-    
-    
-    <script src="./script.js"></script>
-    <script src="./js/add_task.js"></script>        
-    <script src="./js/sidebar-header.js"></script>    
-    <script src="html.js"></script>
-    <script src="./storage.js"></script>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="/Join/">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./fonts.css">
+  <link rel="stylesheet" href="./css/add_task.css">
+  <link rel="stylesheet" href="./css/sidebar-header_template.css">
+  <link rel="stylesheet" href="./css/mobile-header-footer.css">
+
+
+  <script src="./script.js"></script>
+  <script src="./js/add_task.js"></script>
+  <script src="./js/sidebar-header.js"></script>
+  <script src="html.js"></script>
+  <script src="./storage.js"></script>
+
 </head>
+
 <body onload="includeHTML()">
   <div class="w3include-container">
-      <div w3-include-html="assets/templates/sidebar_template.html"></div>
-      <main>
-          <div w3-include-html="assets/templates/header_template.html"></div>
-          <div class="add-task-content">
+    <div w3-include-html="assets/templates/sidebar_template.html"></div>
+    <main>
+      <div w3-include-html="assets/templates/header_template.html"></div>
+      <div class="add-task-content">
 
-          <div class="add-task-main-container">
-    <div class="add-task-container">
-        <div class="add-task-font">Add Task</div>
-    </div>
-    <form id="myForm" onsubmit="">
-<div class="main-container-center">
-    <div class="add-task-container-left">
-      <div class="title-main">
-        <div class="title-field">Title</div>        
-        <input id="enter_title_field" class="input-field-left-top" type="text" placeholder="Enter a title" required>               
-      </div>
-      <div class="description-main">
-        <div class="description-field">Description</div>
-        <textarea id="enter-description_field" class="enter-description-field" placeholder="Enter a Description"></textarea>        
-      </div>
-      <div class="assigned-main">
-        <div class="assigned-field">Assigned to</div>
-        <select id="select_contacts_field" class="selected-contacts-field" required>         
-           <option value="" disabled selected>Select contacts to assign</option>
-           <option value="1">One</option>
-           <option value="2">Two</option>          
-        </select>      
-      </div>
-    </div>
+        <div class="add-task-main-container">
+          <div class="add-task-container">
+            <div class="add-task-font">Add Task</div>
+          </div>
+          <form id="myForm" onsubmit="">
+            <div class="main-container-center">
+              <div class="add-task-container-left">
+                <div class="title-main">
+                  <div class="title-field">Title</div>
+                  <input id="enter_title_field" class="input-field-left-top" type="text" placeholder="Enter a title"
+                    required>
+                </div>
+                <div class="description-main">
+                  <div class="description-field">Description</div>
+                  <textarea id="enter-description_field" class="enter-description-field"
+                    placeholder="Enter a Description"></textarea>
+                </div>
+                <div class="assigned-main">
+                  <div class="assigned-field">Assigned to</div>
+                  <select id="select_contacts_field" class="selected-contacts-field" required>
+                    <option value="" disabled selected>Select contacts to assign</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                  </select>
+                </div>
+              </div>
 
-    <div class="dividing-line"></div>
+              <div class="dividing-line"></div>
 
-    <div class="add-task-container-right">
-       <div class="date-container">
-         <div class="due-date">Due date</div>
-         <input id="date_field" class="date-entry-container" type="date" required>         
-       </div>      
-      <div class="prio-container">
-       <div class="prio-field">Prio</div>
-       <div class="status-container">
-         <div id="urgent_container" onclick="changePrioColor('urgent')" class="status-definition-container">Urgent <img id="urgent_img" class="prio-images" src="./img/urgent.svg"></div>
-         <div id="medium_container" onclick="changePrioColor('medium')" class="status-definition-container">Medium <img id="medium_img" class="prio-images" src="./img/medium.svg"></div>
-         <div id="low_container" onclick="changePrioColor('low')" class="status-definition-container">Low <img id="low_img" class="prio-images" src="./img/low.svg"></div>
-       </div>
+              <div class="add-task-container-right">
+                <div class="date-container">
+                  <div class="due-date">Due date</div>
+                  <input id="date_field" class="date-entry-container" type="date" required>
+                </div>
+                <div class="prio-container">
+                  <div class="prio-field">Prio</div>
+                  <div class="status-container">
+                    <div id="urgent_container" onclick="changePrioColor('urgent')" class="status-definition-container">
+                      Urgent <img id="urgent_img" class="prio-images" src="./img/urgent.svg"></div>
+                    <div id="medium_container" onclick="changePrioColor('medium')" class="status-definition-container">
+                      Medium <img id="medium_img" class="prio-images" src="./img/medium.svg"></div>
+                    <div id="low_container" onclick="changePrioColor('low')" class="status-definition-container">Low
+                      <img id="low_img" class="prio-images" src="./img/low.svg"></div>
+                  </div>
+                </div>
+                <div class="category-container">
+                  <div class="category-field">Category</div>
+                  <select id="select_category_field" class="select-category" required>
+                    <option value="" disabled selected>Select task category</option>
+                    <option value="1">Technical Task</option>
+                    <option value="2">User Story</option>
+                  </select>
+                </div>
+                <div class="subtask-container">
+                  <div class="subtask-field">Subtask</div>
+                  <div class="adding-new-subtask">
+                    <input class="subtask-entry-field" id="add_new_subtask_field" placeholder="Add new subtask"
+                      required>
+                    <img src="./img/add-task-plus.svg">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="clear-and-create-task-container">
+            <div id="clear_button" class="clear-container" onclick="clearAllFields()">Clear
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                <mask id="mask0_71720_5473" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24"
+                  height="25">
+                  <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
+                </mask>
+                <g mask="url(#mask0_71720_5473)">
+                  <path
+                    d="M11.9998 14.3659L7.0998 19.2659C6.91647 19.4492 6.68314 19.5409 6.3998 19.5409C6.11647 19.5409 5.88314 19.4492 5.6998 19.2659C5.51647 19.0825 5.4248 18.8492 5.4248 18.5659C5.4248 18.2825 5.51647 18.0492 5.6998 17.8659L10.5998 12.9659L5.6998 8.06587C5.51647 7.88254 5.4248 7.6492 5.4248 7.36587C5.4248 7.08254 5.51647 6.8492 5.6998 6.66587C5.88314 6.48254 6.11647 6.39087 6.3998 6.39087C6.68314 6.39087 6.91647 6.48254 7.0998 6.66587L11.9998 11.5659L16.8998 6.66587C17.0831 6.48254 17.3165 6.39087 17.5998 6.39087C17.8831 6.39087 18.1165 6.48254 18.2998 6.66587C18.4831 6.8492 18.5748 7.08254 18.5748 7.36587C18.5748 7.6492 18.4831 7.88254 18.2998 8.06587L13.3998 12.9659L18.2998 17.8659C18.4831 18.0492 18.5748 18.2825 18.5748 18.5659C18.5748 18.8492 18.4831 19.0825 18.2998 19.2659C18.1165 19.4492 17.8831 19.5409 17.5998 19.5409C17.3165 19.5409 17.0831 19.4492 16.8998 19.2659L11.9998 14.3659Z"
+                    fill="#2A3647" />
+                </g>
+              </svg>
+            </div>
+            <div id="create_task_button" class="create-task-container" type="button" onclick="">Create Task <img
+                src="./img/check.svg"></div>
+          </div>
+        </div>
       </div>
-      <div class="category-container">
-       <div class="category-field">Category</div>
-       <select id="select_category_field" class="select-category" required>
-         <option value="" disabled selected>Select task category</option>
-         <option value="1">Technical Task</option>
-         <option value="2">User Story</option>  
-       </select>
-      </div>
-      <div class="subtask-container">
-       <div class="subtask-field">Subtask</div>
-       <div class="adding-new-subtask">
-        <input class="subtask-entry-field" id="add_new_subtask_field" placeholder="Add new subtask" required>
-       <img src="./img/add-task-plus.svg"></div>
-      </div>      
-    </div>
   </div>
-</form>
-  <div class="clear-and-create-task-container">
-   <div id="clear_button" class="clear-container" onclick="clearAllFields()">Clear 
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-     <mask id="mask0_71720_5473" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="25">
-      <rect y="0.96582" width="24" height="24" fill="#D9D9D9"/>
-       </mask>
-        <g mask="url(#mask0_71720_5473)">
-         <path d="M11.9998 14.3659L7.0998 19.2659C6.91647 19.4492 6.68314 19.5409 6.3998 19.5409C6.11647 19.5409 5.88314 19.4492 5.6998 19.2659C5.51647 19.0825 5.4248 18.8492 5.4248 18.5659C5.4248 18.2825 5.51647 18.0492 5.6998 17.8659L10.5998 12.9659L5.6998 8.06587C5.51647 7.88254 5.4248 7.6492 5.4248 7.36587C5.4248 7.08254 5.51647 6.8492 5.6998 6.66587C5.88314 6.48254 6.11647 6.39087 6.3998 6.39087C6.68314 6.39087 6.91647 6.48254 7.0998 6.66587L11.9998 11.5659L16.8998 6.66587C17.0831 6.48254 17.3165 6.39087 17.5998 6.39087C17.8831 6.39087 18.1165 6.48254 18.2998 6.66587C18.4831 6.8492 18.5748 7.08254 18.5748 7.36587C18.5748 7.6492 18.4831 7.88254 18.2998 8.06587L13.3998 12.9659L18.2998 17.8659C18.4831 18.0492 18.5748 18.2825 18.5748 18.5659C18.5748 18.8492 18.4831 19.0825 18.2998 19.2659C18.1165 19.4492 17.8831 19.5409 17.5998 19.5409C17.3165 19.5409 17.0831 19.4492 16.8998 19.2659L11.9998 14.3659Z" fill="#2A3647"/>
-          </g>
-           </svg>
-   </div>     
-   <div id="create_task_button" class="create-task-container" type="button" onclick="">Create Task <img src="./img/check.svg"></div>   
-  </div>
-    </div>
-  </div>
- </div>
-</main>
+  </main>
 </body>
+
 </html>

@@ -8,7 +8,7 @@ function checkPath() {
   if (currentPath === '/10_Join/Join/summary.html' || currentPath === '/10_Join/Join/add_task.html' || currentPath === '/10_Join/Join/board.html' || currentPath === '/10_Join/Join/contacts.html') {
       activeMenuLink();
   }
-  if (currentPath === '/10_Join/Join/privacy_policy.html' || currentPath === '/10_Join/Join/leagal_notice.html') {
+  if (currentPath === '/10_Join/Join/privacy_policy.html' || currentPath === '/10_Join/Join/legal_notice.html') {
     activeInfoLink();
   }
 

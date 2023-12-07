@@ -12,7 +12,7 @@ let buckets = ['to-do', 'in-progress','await-feedback', 'done'];
  */
 function generateCardHTML(id, title, description, category, categoryColor) {
     return `
-            <div class="task-card" id="task${id}" onclick="loadTaskOverlay(${id})" ondragstart="startDragging(${id})"
+            <div class="task-card" id="task${id}" onclick="loadTaskOpen(${id})" ondragstart="startDragging(${id})"
             draggable="true">
             <div class="category-move-card-container">
                 <div class="task-category-label" style="background-color: ${categoryColor};">${category}</div>
@@ -122,7 +122,7 @@ function generateTaskOverlayHTML(id, title, description, prio, category, categor
                         <!-- tesk overlay tag -->
                         <div class="category-container-task-open">
                             <div class="category-tag-task-open"style="background-color: ${categoryColor};">${category}</div>
-                            <div class="close-button" onclick="frameSlideOut('ed_task_overlay_frame')">
+                            <div class="close-button" onclick="hideTaskOpen('ed_task_overlay_frame')">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
                                     <mask id="mask0_99379_7049" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
