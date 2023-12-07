@@ -124,3 +124,8 @@ function generateUserBadge(fullName) {
     let lastNameInitial = nameParts[1] ? nameParts[1].charAt(0).toUpperCase() : '';
     return firstNameInitial + lastNameInitial;
 }
+
+function formatDueDate(dueDate) {
+    let duedate = dueDate.replace('-', '/');
+    return duedate;
+}

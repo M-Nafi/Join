@@ -23,6 +23,17 @@ function loadTaskOpen(id) {
 function loadTask(id, title, description, prio, category, subtasks, assigneds, duedate) {
     let categoryColor = loadCategoryColor(category);
     document.getElementById('task_overlay_bg').innerHTML = 
-    generateTaskOverlayHTML(id, title, description, prio, category, categoryColor, subtasks, assigneds, duedate);
+    generateTaskOverlayHTML(id, title, description, category, categoryColor, subtasks, assigneds, duedate);
+    loadTaskOpenPrio(prio, 'task_open_prio');
 }
 
+function loadTaskOpenPrio(prio, id) {
+    let taskPrioIcon = document.getElementById(id);
+    if (prio === "Urgent") {
+        taskPrioIcon.innerHTML = `<div>${prio}</div> ${generateUrgentPrioIcon()}`;
+    } else if (prio === "Medium") {
+        taskPrioIcon.innerHTML = `<div>${prio}</div> ${generateMediumPrioIcon()}`;
+    } else if (prio === "Low") {
+        taskPrioIcon.innerHTML = `<div>${prio}</div> ${generateLowPrioIcon()}`;
+    }
+}
