@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Join</title>
-	<link rel="icon" type="image/svg" href="./assets/img/LogoFavicon.svg">
-	<link rel="stylesheet" href="./css/sidebar-header_template.css">
-	<link rel="stylesheet" href="./css/board.css">
-	<link rel="stylesheet" href="./css/slider.css">
-	<link rel="stylesheet" href="./css/mobile-header-footer.css">
-	<link rel="stylesheet" href="./css/add-task-slider.css">
-	<link rel="stylesheet" href="./css/edit-board-slider.css">
-	<link rel="stylesheet" href="./fonts.css">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="./css/mobile_board.css">
+	<link rel="icon" type="image/svg" href="./assets/img/LogoFavicon.svg" />
+	<link rel="stylesheet" href="./css/sidebar-header_template.css" />
+	<link rel="stylesheet" href="./css/board.css" />
+	<link rel="stylesheet" href="./css/slider.css" />
+	<link rel="stylesheet" href="./css/mobile-header-footer.css" />
+	<link rel="stylesheet" href="./css/add-task-slider.css" />
+	<link rel="stylesheet" href="./css/edit-board-slider.css" />
+	<link rel="stylesheet" href="./fonts.css" />
+	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="./css/mobile_board.css" />
 	<script src="./js/storage.js"></script>
 	<script src="./script.js"></script>
 	<script src="./js/render-board.js"></script>
@@ -22,7 +22,7 @@
 	<script src="./js/task-move-to.js"></script>
 	<script src="./js/board.js"></script>
 	<script src="./js/sidebar-header.js"></script>
-	<script src='./js/add-task-slider.js'></script>
+	<script src="./js/add-task-slider.js"></script>
 	<script src="./js/task-open.js"></script>
 	<script src="./js/task-edit.js"></script>
 	<script src="./js/slider.js"></script>
@@ -38,14 +38,13 @@
 			<div w3-include-html="assets/templates/header_template.html" class="w3-header"></div>
 			<!-- board container -->
 			<div class="board-container">
-
 				<!-- board Header -->
 				<div class="board-head">
 					<h1>Board</h1>
 					<div id="search_on_task_container">
 						<div id="input_section">
 							<input id="find_task" type="text" placeholder="Find Task"
-								onkeyup="searchTask(); setTimeout(closeFilter(),1000)">
+								onkeyup="searchTask(); setTimeout(closeFilter(),1000)" />
 							<div class="task-search-field">
 								<div class="seperator"></div>
 								<div class="search-button" onclick="searchTask()">
@@ -93,9 +92,8 @@
 						<!-- To Do Task Drop Zone-->
 						<div id="to-do" class="column-drop-zone" ondrop="moveTo('to-do'); removeHighlight('to-do')"
 							ondragover="allowDrop(event), highlight('to-do')" ondragleave="removeHighlight('to-do')"
-							style="padding: 0px; height: 100%;">
+							style="padding: 0px; height: 100%">
 							<!-- Task Card -->
-
 						</div>
 					</div>
 
@@ -108,8 +106,7 @@
 								onclick="addTaskSlider('in-progress'); handleInputFocus();">
 								<path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"></path>
 								<path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2"
-									stroke-linecap="round">
-								</path>
+									stroke-linecap="round"></path>
 								<rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2">
 								</rect>
 							</svg>
@@ -118,9 +115,8 @@
 						<div id="in-progress" class="column-drop-zone"
 							ondrop="moveTo('in-progress'); removeHighlight('in-progress')"
 							ondragover="allowDrop(event), highlight('in-progress')"
-							ondragleave="removeHighlight('in-progress')" style="padding: 0px; height: 100%;">
+							ondragleave="removeHighlight('in-progress')" style="padding: 0px; height: 100%">
 							<!-- Task Card -->
-
 						</div>
 					</div>
 
@@ -133,8 +129,7 @@
 								onclick="addTaskSlider('await-feedback'); handleInputFocus();">
 								<path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"></path>
 								<path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2"
-									stroke-linecap="round">
-								</path>
+									stroke-linecap="round"></path>
 								<rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2">
 								</rect>
 							</svg>
@@ -143,9 +138,8 @@
 						<div id="await-feedback" class="column-drop-zone"
 							ondrop="moveTo('await-feedback'); removeHighlight('await-feedback')"
 							ondragover="allowDrop(event), highlight('await-feedback')"
-							ondragleave="removeHighlight('await-feedback')" style="padding: 0px; height: 100%;">
+							ondragleave="removeHighlight('await-feedback')" style="padding: 0px; height: 100%">
 							<!-- Task Card -->
-
 						</div>
 					</div>
 
@@ -158,8 +152,7 @@
 								onclick="addTaskSlider('done'); handleInputFocus();">
 								<path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"></path>
 								<path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2"
-									stroke-linecap="round">
-								</path>
+									stroke-linecap="round"></path>
 								<rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2">
 								</rect>
 							</svg>
@@ -167,19 +160,15 @@
 						<!-- Done Task Drop Zone-->
 						<div id="done" class="column-drop-zone" ondrop="moveTo('done'); removeHighlight('done')"
 							ondragover="allowDrop(event), highlight('done')" ondragleave="removeHighlight('done')"
-							style="padding: 0px; height: 100%;">
+							style="padding: 0px; height: 100%">
 							<!-- Task Card -->
-
 						</div>
 					</div>
-
 				</div>
 
 				<!-- Task Open Content Slider-->
-				<div id="task_overlay_bg" class="slider-center d-none">
-
-
-				</div>
+				<div id="task_overlay_bg" class="slider-center d-none"
+					onclick="hideTaskOpen('task_open_overlay_frame')"></div>
 
 				<!-- Task Added to Board -->
 				<div id="task_added_to_board" class="slider-center d-none">
@@ -200,6 +189,5 @@
 		</main>
 	</div>
 </body>
-
 
 </html>

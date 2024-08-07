@@ -22,12 +22,12 @@ function generateCardHTML(id, title, description, category, categoryColor) {
                         fill-rule="evenodd"></path>
                 </svg>
 				<div class="mbl-move-btn-container">
-					<button class="mbl-move-btn" onclick="DoNotForward(event); showSubmenu('move_submenu${id}', 'd-none')" id="mbl_move${id}">Move</button>
+					<button class="mbl-move-btn" onclick="doNotForward(event); showSubmenu('move_submenu${id}', 'd-none')" id="mbl_move${id}">Move</button>
 					<div id="move_submenu${id}" class="mbl-move-menu d-none">
-						<div class="mbl-move-item" onclick="DoNotForward(event); startDragging(${id}); moveTo('to-do')">To Do</div>
-						<div class="mbl-move-item" onclick="DoNotForward(event); startDragging(${id}); moveTo('in-progress')">In progress</div>
-						<div class="mbl-move-item" onclick="DoNotForward(event); startDragging(${id}); moveTo('await-feedback')">Await feedback</div>
-						<div class="mbl-move-item" onclick="DoNotForward(event); startDragging(${id}); moveTo('done')">Done</div>
+						<div class="mbl-move-item" onclick="doNotForward(event); startDragging(${id}); moveTo('to-do')">To Do</div>
+						<div class="mbl-move-item" onclick="doNotForward(event); startDragging(${id}); moveTo('in-progress')">In progress</div>
+						<div class="mbl-move-item" onclick="doNotForward(event); startDragging(${id}); moveTo('await-feedback')">Await feedback</div>
+						<div class="mbl-move-item" onclick="doNotForward(event); startDragging(${id}); moveTo('done')">Done</div>
 					</div>
 				</div>
 
@@ -178,7 +178,7 @@ function generateUrgentPrioIcon() {
  */
 function generateOpenTaskHTML(id, title, description, category, categoryColor, duedate) {
     return `
-	<div id="task_open_overlay_frame" class="task-overlay-frame-open">
+	<div id="task_open_overlay_frame" class="task-overlay-frame-open" onclick="doNotForward(event)">
 			<!-- tesk overlay tag -->
 			<div class="category-container-task-open">
 				<div class="category-tag-task-open"style="background-color: ${categoryColor};">${category}</div>
@@ -395,15 +395,7 @@ function generateSubtasksCheckedHTML(subtitle, i, ID) {
  * @param {string} subtaskList - The ID of the subtask list container.
  * @returns {string} - The HTML for the subtask list item in the task frame.
  */
-function generateSubtaskListItemHTML(
-    subtitle,
-    i,
-    ID,
-    subtaskListItemID,
-    subtaskEditContainerID,
-    subtaskEditInputID,
-    subtaskList
-) {
+function generateSubtaskListItemHTML(subtitle, i, ID, subtaskListItemID, subtaskEditContainerID, subtaskEditInputID, subtaskList) {
     let subtaskListItem = `${ID}${subtaskListItemID}${i}`;
     let subtaskEditContainer = `${ID}${subtaskEditContainerID}${i}`;
     let subtaskEditInput = `${ID}${subtaskEditInputID}${i}`;
@@ -454,7 +446,7 @@ function generateSubtaskListItemHTML(
  */
 function generateEditTaskHTML(id, title, description, duedate) {
     return `
-            <div id="task_open_overlay_frame" class="task-overlay-frame-open">
+            <div id="task_open_overlay_frame" class="task-overlay-frame-open" onclick="doNotForward(event)">
                 <!-- tesk overlay close Button -->
                 <div class="close-btn-container-task-edit">
                     <div class="close-button" onclick="loadAddedTasksFromStorage(), hideTaskOpen('task_open_overlay_frame')">

@@ -2,21 +2,20 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join</title>
 
+  <link rel="icon" type="image/svg" href="./assets/img/LogoFavicon.svg" />
 
-  <link rel="icon" type="image/svg" href="./assets/img/LogoFavicon.svg">
-  
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="./fonts.css">
-  <link rel="stylesheet" href="./css/add_task.css">
-  <link rel="stylesheet" href="./css/add_task_mobile.css">
-  <link rel="stylesheet" href="./css/sidebar-header_template.css">
-  <link rel="stylesheet" href="./css/mobile-header-footer.css">
-  <link rel="stylesheet" href="./css/add-task-slider.css">
-  <link rel="stylesheet" href="./css/edit-board-slider.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./fonts.css" />
+  <link rel="stylesheet" href="./css/add_task.css" />
+  <link rel="stylesheet" href="./css/add_task_mobile.css" />
+  <link rel="stylesheet" href="./css/sidebar-header_template.css" />
+  <link rel="stylesheet" href="./css/mobile-header-footer.css" />
+  <link rel="stylesheet" href="./css/add-task-slider.css" />
+  <link rel="stylesheet" href="./css/edit-board-slider.css" />
 
   <script src="./js/board.js"></script>
   <script src="./js/task-open.js"></script>
@@ -29,11 +28,9 @@
   <script src="./js/render-board.js"></script>
   <script src="./js/add_task.js"></script>
   <script src="./js/add_task_generate_html.js"></script>
-
 </head>
 
 <body onload="includeHTML(), initAddTask()">
-
   <div class="w3include-container">
     <div w3-include-html="assets/templates/sidebar_template.html"></div>
     <main class="main-add-task-container">
@@ -42,37 +39,42 @@
         <div class="add-task-main-container">
           <div class="add-task-container">
             <div class="add-task-font">Add Task</div>
-            <div id="sending_confirmation" class="sending-confirmation">Task added to board <img
-                class="confirmation-picture" src="./assets/img/added-task-to-board-icon.svg">
+            <div id="sending_confirmation" class="sending-confirmation">
+              Task added to board <img class="confirmation-picture" src="./assets/img/added-task-to-board-icon.svg" />
             </div>
           </div>
-          <form id="add_task_validation" onsubmit="createTask(); return false">
+          <form id="add_task_validation" onsubmit="createTask(); return false" onclick="doNotForward(event)">
             <div class="main-container-center">
               <div class="add-task-container-left">
                 <div class="title-main">
                   <div class="title-field">Title<span class="star">*</span></div>
-                  <input id="enter_title_field" class="input-field-left-top" type="text" placeholder="Enter a title" required>
+                  <input id="enter_title_field" class="input-field-left-top" type="text" placeholder="Enter a title"
+                    required />
                 </div>
                 <div class="description-main">
                   <div class="description-field">Description</div>
-                  <textarea id="enter_description_field" class="enter-description-field" placeholder="Enter a Description"></textarea>
+                  <textarea id="enter_description_field" class="enter-description-field"
+                    placeholder="Enter a Description"></textarea>
                 </div>
                 <div class="assigned-main">
                   <div class="assigned-field">Assigned to</div>
                   <div class="assigned-to-input-slider">
-                    <input id="et_select_contacts_search" class="assigned-to-slider" type="text" placeholder="Select contacts to assign" autocomplete="off" 
-                      onkeyup="filterUserOnAssignedTo('et_select_contacts_search', 'et_contact_overlay', 10)">
-                    <img id="select-contacts_down" class="select-contacts-dropdown" src="./assets/img/arrow_drop_down.svg" alt="Select Contacts Button" 
-                      onclick="openContactOverlay('et_contact_overlay','et_selected_contacts')">
-                    <img id="select-contacts_up" class="select-contacts-dropdown d-none" src="./assets/img/arrow_drop_up.svg" alt="Select Contacts Button" 
-                      onclick="openContactOverlay('et_contact_overlay', 'et_selected_contacts')">
+                    <input id="et_select_contacts_search" class="assigned-to-slider" type="text"
+                      placeholder="Select contacts to assign" autocomplete="off"
+                      onkeyup="filterUserOnAssignedTo('et_select_contacts_search', 'et_contact_overlay', 10)" />
+                    <img id="select-contacts_down" class="select-contacts-dropdown"
+                      src="./assets/img/arrow_drop_down.svg" alt="Select Contacts Button"
+                      onclick="openContactOverlay('et_contact_overlay','et_selected_contacts')" />
+                    <img id="select-contacts_up" class="select-contacts-dropdown d-none"
+                      src="./assets/img/arrow_drop_up.svg" alt="Select Contacts Button"
+                      onclick="openContactOverlay('et_contact_overlay', 'et_selected_contacts')" />
                     <div class="p-relative">
-                      <div class="contact-overlay d-none" id="et_contact_overlay"></div>                      
+                      <div class="contact-overlay d-none" id="et_contact_overlay"></div>
                       <div id="et_selected_contacts" class="selected-contacts"></div>
-                    </div>                  
+                    </div>
                   </div>
                 </div>
-              </div>              
+              </div>
 
               <div class="dividing-line"></div>
 
@@ -80,17 +82,20 @@
                 <div class="date-container">
                   <div class="due-date">Due date<span class="star">*</span></div>
                   <input id="date_field" class="date-entry-container" type="date" placeholder="tt.mm.jjjj"
-                    onfocus="(this.type = 'date')" required>
+                    onfocus="(this.type = 'date')" required />
                 </div>
                 <div class="prio-container">
                   <div class="prio-field">Prio</div>
                   <div class="status-container">
                     <div id="Urgent_container" onclick="changePrioColor('Urgent')" class="status-definition-container">
-                      Urgent<img id="Urgent_img" class="prio-images" src="./assets/img/Urgent.svg"></div>
+                      Urgent<img id="Urgent_img" class="prio-images" src="./assets/img/Urgent.svg" />
+                    </div>
                     <div id="Medium_container" onclick="changePrioColor('Medium')" class="status-definition-container">
-                      Medium<img id="Medium_img" class="prio-images" src="./assets/img/Medium.svg"></div>
-                    <div id="Low_container" onclick="changePrioColor('Low')" class="status-definition-container">Low<img
-                        id="Low_img" class="prio-images" src="./assets/img/Low.svg"></div>
+                      Medium<img id="Medium_img" class="prio-images" src="./assets/img/Medium.svg" />
+                    </div>
+                    <div id="Low_container" onclick="changePrioColor('Low')" class="status-definition-container">
+                      Low<img id="Low_img" class="prio-images" src="./assets/img/Low.svg" />
+                    </div>
                   </div>
                 </div>
                 <div class="category-container">
@@ -105,14 +110,14 @@
                   <div class="subtask-field">Subtask</div>
                   <div class="adding-new-subtask">
                     <input onclick="handleSubtaskActions()" class="subtask-entry-field" id="add_new_subtask_field"
-                      placeholder="Add new subtask">
+                      placeholder="Add new subtask" />
                     <img id="normal_subtask_icon" class="normal-subtask-icon"
-                      onclick="changingSubtaskIcons(), handleSubtaskActions()" src="./assets/img/add-task-plus.svg">
+                      onclick="changingSubtaskIcons(), handleSubtaskActions()" src="./assets/img/add-task-plus.svg" />
                     <div id="three_subtask_icons" class="three-subtask-icons d-none">
                       <img id="adding_subtask_icon-c" class="subtask-icons" src="./assets/img/cancel.svg"
-                        onclick="closeSubtaskIcons()"><img src="./assets/img/vector-line.svg">
+                        onclick="closeSubtaskIcons()" /><img src="./assets/img/vector-line.svg" />
                       <img id="adding_subtask_icon-ok" class="subtask-icons" onclick="displaySubtasks()"
-                        src="./assets/img/check-dark.svg">
+                        src="./assets/img/check-dark.svg" />
                     </div>
                   </div>
                   <div id="subtask_display_container" class="subtask-display"></div>
@@ -123,9 +128,10 @@
             <div class="clear-and-create-task-container">
               <div class="required-advise"><span class="star">*</span>This field is required</div>
               <div class="clear-and-create-area">
-                <div id="clear_button" class="clear-container" onclick="clearAllFields()">Clear
+                <div id="clear_button" class="clear-container" onclick="clearAllFields()">
+                  Clear
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                    <mask id="mask0_71720_5473" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
+                    <mask id="mask0_71720_5473" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0"
                       width="24" height="25">
                       <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
                     </mask>
@@ -136,8 +142,9 @@
                     </g>
                   </svg>
                 </div>
-                <button type="submit" id="create_task_button" class="create-task-container" type="button"
-                  disabled>Create Task <img src="./assets/img/check.svg"></button>
+                <button type="submit" id="create_task_button" class="create-task-container" type="button" disabled>
+                  Create Task <img src="./assets/img/check.svg" />
+                </button>
               </div>
             </div>
           </form>
@@ -146,7 +153,6 @@
       <div w3-include-html="assets/templates/mobile_sidebar_template.html"></div>
     </main>
   </div>
-
 </body>
 
 </html>

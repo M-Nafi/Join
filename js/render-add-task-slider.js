@@ -1,9 +1,9 @@
 function generateAddTaskSliderHTML(id) {
     return `
-<div id="add_task_overlay_frame" class="slider-frame">
+<div id="task_open_overlay_frame" class="slider-frame" onclick="doNotForward(event)">
     <div class="add-task-head">
         <h1>Add Task</h1>
-        <div class="close-button" onclick="deleteNewTask(${id}); hideTaskOpen('add_task_overlay_frame')">
+        <div class="close-button" onclick="hideTaskOpen('task_open_overlay_frame')">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                 fill="none">
                 <mask id="mask0_99234_5574" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
@@ -186,7 +186,7 @@ function generateAddTaskSliderHTML(id) {
         </div>
 
         <div class="clear-create-subtask-btn">
-            <button onclick="deleteNewTask(${id}); hideTaskOpen('add_task_overlay_frame')" type="button" id="clear_btn">
+            <button onclick="hideTaskOpen('task_open_overlay_frame')" type="button" id="clear_btn">
                 Cancel
                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">

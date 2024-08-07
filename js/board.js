@@ -64,8 +64,7 @@ function loadBoard() {
 function updateBoard(currentBucket) {
     let tasks = getTasksPerBucket(currentBucket);
     for (let index = 0; index < tasks.length; index++) {
-        let [id, bucket, title, description, prio, category, subtasks, assigneds, duedate, rawDuedate] =
-            getTaskVariables(tasks, index);
+        let [id, bucket, title, description, prio, category, subtasks, assigneds, duedate, rawDuedate] = getTaskVariables(tasks, index);
         loadCard(id, bucket, title, description, prio, category, subtasks, assigneds);
     }
 }
@@ -223,10 +222,7 @@ function getVariableForAssignedsUserBadge(assigneds, i) {
  * @returns {void}
  */
 function renderAssignedBadge(userBadge, badgeColor, id) {
-    document.getElementById(`task_assignment_container_${id}`).innerHTML += generateAssignedBadgeHTML(
-        userBadge,
-        badgeColor
-    );
+    document.getElementById(`task_assignment_container_${id}`).innerHTML += generateAssignedBadgeHTML(userBadge, badgeColor);
 }
 
 /**
@@ -240,9 +236,7 @@ function renderAssignedBadge(userBadge, badgeColor, id) {
  */
 function renderAssignedBadgeWithLimit(id, assigneds) {
     let limit = assigneds.length - 6;
-    document.getElementById(
-        `task_assignment_container_${id}`
-    ).innerHTML += `<div class="assigned-limit">+${limit}</div>`;
+    document.getElementById(`task_assignment_container_${id}`).innerHTML += `<div class="assigned-limit">+${limit}</div>`;
 }
 
 /**
@@ -440,9 +434,7 @@ function searchTask() {
     let searchTerm = find_task.value;
     clearBoard();
     filteredTasks = addedTasks.filter(
-        (t) =>
-            t["title"].toLowerCase().includes(searchTerm.toLowerCase()) ||
-            t["description"].toLowerCase().includes(searchTerm.toLowerCase())
+        (t) => t["title"].toLowerCase().includes(searchTerm.toLowerCase()) || t["description"].toLowerCase().includes(searchTerm.toLowerCase())
     );
     loadBoard();
     errorNoteSearchTask("no_task_found");
@@ -465,9 +457,7 @@ function searchTaskMobile() {
     let searchTerm = find_task_mobile.value;
     clearBoard();
     filteredTasks = addedTasks.filter(
-        (t) =>
-            t["title"].toLowerCase().includes(searchTerm.toLowerCase()) ||
-            t["description"].toLowerCase().includes(searchTerm.toLowerCase())
+        (t) => t["title"].toLowerCase().includes(searchTerm.toLowerCase()) || t["description"].toLowerCase().includes(searchTerm.toLowerCase())
     );
     loadBoard();
     errorNoteSearchTask("no_task_found_mobile");
@@ -531,6 +521,6 @@ function closeFilter() {
  * @param {Event} event - The event object.
  * @returns {void}
  */
-function DoNotForward(event) {
+function doNotForward(event) {
     event.stopPropagation();
 }
